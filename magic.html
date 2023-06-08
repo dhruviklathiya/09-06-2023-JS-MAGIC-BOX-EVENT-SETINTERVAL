@@ -1,8 +1,5 @@
-<!-- Speed in increasing everytime we click the button -->
-<!-- How to stop -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +11,6 @@
         display: flex;
         justify-content: center;
     }
-
     .box {
         transition: all 0.5s;
         height: 250px;
@@ -23,14 +19,12 @@
         margin: 20px;
         border-radius: 3%;
     }
-
     img {
         height: 250px;
         width: 250px;
         object-fit: cover;
         border-radius: 3%;
     }
-
     button {
         margin-top: 100px;
         height: 40px;
@@ -40,29 +34,21 @@
         border-radius: 50px;
         border: 0;
     }
-
-    /* EXTRAS */
-    #box1 {
-        border: 10px;
-    }
 </style>
-
 <body>
     <div class="main_box">
         <div class="box" id="box1"></div>
         <div class="box" id="box2"></div>
-        <div class="box" id="box3"><img id="img_" />
-            <p id="para_">  </p>
+        <div class="box" id="box3">
+            <img id="img_"/>
+            <p id="para_"></p>
         </div>
     </div>
     <div class="main_box"><button id="btn_" onclick="btn_eve()">CLICK TO AUTOMATE</button></div>
-
     <script>
         var box_1 = document.getElementById('box1');
-        // var rotate_value = 0;
         box_1.addEventListener("mouseover", box_1_eve);
         function box_1_eve() {
-            // rotate_value+=90;
             box_1.style.scale = Math.random() * 1.5;
             box_1.style.rotate = `${Math.random() * 360}deg`;
             // Extra
@@ -71,8 +57,6 @@
         var box_2 = document.getElementById('box2');
         box_2.addEventListener("mouseover", box_2_eve);
         function box_2_eve() {
-            // without using direct function of math.random
-            // let x = Math.floor(Math.random() * 10000);
             box_2.style.background = `#${Math.floor(Math.random() * 10000)}`;
         }
         var box_3 = document.getElementById('box3');
@@ -81,28 +65,19 @@
         arr_p = ["Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.", "Success is not final, failure is not fatal: It is the courage to continue that counts.", "The only way to do great work is to love what you do.", "The future belongs to those who believe in the beauty of their dreams.", "Don't watch the clock; do what it does. Keep going.", "Believe you can and you're halfway there.", "The secret of getting ahead is getting started.", "You are never too old to set another goal or to dream a new dream.", "Success is not the key to happiness. Happiness is the key to success.", "The only limit to our realization of tomorrow will be our doubts of today.", "The harder you work for something, the greater you'll feel when you achieve it.", "Believe in yourself, take on your challenges, dig deep within yourself to conquer fears.", "Don't be afraid to give up the good to go for the great.", "Your time is limited, don't waste it living someone else's life.", "The biggest risk is not taking any risk. In a world that is changing quickly, the only strategy that is guaranteed to fail is not taking risks.", "You don't have to be great to start, but you have to start to be great.", "Success is walking from failure to failure with no loss of enthusiasm.", "The future belongs to those who believe in the beauty of their dreams.", "The only limit to our realization of tomorrow will be our doubts of today.", "It always seems impossible until it's done.", "The only thing standing between you and your goal is the story you keep telling yourself as to why you can't achieve it.", "Believe you can and you're halfway there.", "The secret of getting ahead is getting started.", "The only person you are destined to become is the person you decide to be.", "Success is not final, failure is not fatal: It is the courage to continue that counts.", "Success usually comes to those who are too busy to be looking for it.", "The best revenge is massive success.", "Believe in yourself, take on your challenges, dig deep within yourself to conquer fears.", "Don't watch the clock; do what it does. Keep going.", "The only way to do great work is to love what you do.", "Your time is limited, don't waste it living someone else's life."];
         function box_3_eve() {
             let i = Math.floor(Math.random() * 28);
-            // Index of image
-            console.log("Index of image: " + i);
             let img_ = document.getElementById('img_');
             img_.src = arr_[i];
             // Method 1:
             document.getElementById('para_').innerHTML = arr_p[i];
             // Method 2:
-            document.getElementById('para_').textContent = arr_p[i];
+            // document.getElementById('para_').textContent = arr_p[i];
         }
-        let click = 0;
         function btn_eve() {
-            click += 1;
-            // Checking value of click
-            // console.log(click);
-            if (click % 2 != 0) {
                 setInterval(box_1_eve, 1000);
                 setInterval(box_2_eve, 1000);
                 setInterval(box_3_eve, 1000);
                 document.getElementById('btn_').style.display = "none";
-            }
         }
     </script>
 </body>
-
 </html>
